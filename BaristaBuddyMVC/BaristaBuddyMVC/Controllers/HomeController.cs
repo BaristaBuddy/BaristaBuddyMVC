@@ -20,9 +20,11 @@ namespace BaristaBuddyMVC.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Home is where the coffee is. <3");
             return View();
         }
 
+        [Route("Privacy")]
         public IActionResult Privacy()
         {
             return View();
