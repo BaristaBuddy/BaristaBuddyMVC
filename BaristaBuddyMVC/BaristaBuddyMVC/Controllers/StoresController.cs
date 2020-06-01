@@ -13,6 +13,11 @@ namespace BaristaBuddyMVC.Controllers
     {
         private readonly IStoreService storeService;
 
+        public StoresController(IStoreService storeService)
+        {
+            this.storeService = storeService;
+        }
+
         // GET: Stores
         public async Task<ActionResult<List<Store>>> Index()
         {
