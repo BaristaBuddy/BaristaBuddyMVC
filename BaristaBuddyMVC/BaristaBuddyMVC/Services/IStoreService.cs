@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BaristaBuddyMVC.Services
 {
-    internal interface IStoreService
+    public interface IStoreService
     {
         Task<List<Store>> GetAllStores();
     }
