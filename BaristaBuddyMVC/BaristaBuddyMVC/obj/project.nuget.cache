@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gblkDL4ItIPd/saeMdtKaxvHI6lZ/6JisUTl8blvcU6n9K8R/AJXlGsTiVb+AswPyvNblRpEIEn5vhT3iFdcBQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mcb4r\\OneDrive\\Desktop\\github\\code-401\\BaristaBuddy\\BaristaBuddyMVC\\BaristaBuddyMVC\\BaristaBuddyMVC\\BaristaBuddyMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mcb4r\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
