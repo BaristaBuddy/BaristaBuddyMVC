@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,12 @@ namespace BaristaBuddyMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            var httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(Configuration.GetValue<string>("API_URL")),
+            };
+            services.AddSingleton<HttpClient>(httpClient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
