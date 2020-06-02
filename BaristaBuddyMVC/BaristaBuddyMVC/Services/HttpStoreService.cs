@@ -39,9 +39,10 @@ namespace BaristaBuddyMVC.Services
             }
         }
 
-         public async Task DeleteStore(int id, Store store)
+         public async Task DeleteStore(int id)
         {
-            throw new NotImplementedException();
+            var response = await client.DeleteAsync($"Stores/{id}");
+            response.EnsureSuccessStatusCode();
         }
 
         public async Task<Store> GetOneStore(int id)
