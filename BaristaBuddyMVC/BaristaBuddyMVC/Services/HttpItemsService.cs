@@ -59,9 +59,9 @@ namespace BaristaBuddyMVC.Services
             return result;
         }
 
-             Task<Item> UpdateItems(int id, Item item)
+             public async Task<Item> UpdateItems(int id, Item item)
         {
-            throw new System.NotImplementedException();
+            return default;
         }
     }
 }
