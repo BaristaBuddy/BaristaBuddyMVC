@@ -45,9 +45,11 @@ namespace BaristaBuddyMVC.Services
             response.EnsureSuccessStatusCode();
         }
 
-             Task<List<Item>> GetAllItems()
+             public async Task<List<Item>> GetAllItems()
         {
-            throw new System.NotImplementedException();
+            var responseStream = await client.GetStreamAsync("Stores/Items");
+            List<Item> result = await JsonSerializer.DeserializeAsync<List<Item>>(responseStream);
+            return result;
         }
 
              Task<Item> GetOneItem(int id)
