@@ -93,7 +93,7 @@ namespace BaristaBuddyMVC.Controllers
         {
             try
             {
-                await storeService.DeleteStore(id, store);
+                await storeService.DeleteStore(id);
 
                 return RedirectToAction(nameof(Index));
             }
