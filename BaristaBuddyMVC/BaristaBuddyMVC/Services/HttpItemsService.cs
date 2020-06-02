@@ -1,15 +1,63 @@
 ﻿using BaristaBuddyMVC.Models;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System;
 
 namespace BaristaBuddyMVC.Services
 {
-    public interface HttpItemsService
+    public class HttpItemsService : IItemService
     {
-        Task<Item> AddItem(Item item);
-        Task DeleteItem(int id);
-        Task<List<Item>> GetAllItems();
-        Task<Item> GetOneItem(int id);
-        Task<Item> UpdateItems(int id, Item item);
+        private readonly HttpClient client;
+        public HttpItemsService(HttpClient client)
+        {
+            this.client = client;
+
+        }
+
+        public async Task<Item> AddItem(Item item)
+        {
+            using(var content = new StringContent(JsonSerializer.Serialize(item),
+                System.Text.Encoding.UTF8, "application/Json"))
+            {
+                var response = await client.PostAsync("Stores", content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    var responseStream = response.Content.ReadAsStreamAsync().Result;
+
+                    Item result = await JsonSerializer.DeserializeAsync<Item>(responseStream);
+
+                    return result;
+
+                }
+
+                throw new Exception($"failed to post data: ({response.StatusCode})");
+
+            }
+        }
+
+     
+
+        public async Task DeleteItem(int id)
+        {
+            var response = await client.DeleteAsync($"Stores/Items/{id}");
+            response.EnsureSuccessStatusCode();
+        }
+
+             Task<List<Item>> GetAllItems()
+        {
+            throw new System.NotImplementedException();
+        }
+
+             Task<Item> GetOneItem(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+             Task<Item> UpdateItems(int id, Item item)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
