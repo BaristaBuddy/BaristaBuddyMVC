@@ -22,13 +22,14 @@ namespace BaristaBuddyMVC.Controllers
         public async Task<ActionResult<List<Store>>> Index()
         {
             var stores = await storeService.GetAllStores();
-            return View(stores);
+            return View(stores.OrderBy(s => s.Name));
         }
 
         // GET: Stores/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult<Store>> Details(int id)
         {
-            return View();
+            var store = await storeService.GetOneStore(id);
+            return View(store);
         }
 
         // GET: Stores/Create
@@ -40,10 +41,12 @@ namespace BaristaBuddyMVC.Controllers
         // POST: Stores/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult<Store>> Create(Store store)
         {
             try
             {
+                await storeService.AddStore(store);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -53,18 +56,21 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Stores/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult<Store>> Edit(int id)
         {
-            return View();
+            var store = await storeService.GetOneStore(id);
+            return View(store);
         }
 
-        // POST: StoresController/Edit/5
+        // POST: Stores/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult<Store>> Edit(int id, Store store)
         {
             try
             {
+                await storeService.UpdateStore(id, store);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -73,19 +79,22 @@ namespace BaristaBuddyMVC.Controllers
             }
         }
 
-        // GET: StoresController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Stores/Delete/5
+        public async Task<ActionResult<Store>> Delete(int id)
         {
-            return View();
+            var store = await storeService.GetOneStore(id);
+            return View(store);
         }
 
         // POST: StoresController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, Store store)
         {
             try
             {
+                await storeService.DeleteStore(id);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
