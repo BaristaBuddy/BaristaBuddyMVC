@@ -22,5 +22,27 @@ namespace BaristaBuddyMVC.Services
             List<Store> result = await JsonSerializer.DeserializeAsync<List<Store>>(responseStream);
             return result;
         }
+
+        public async Task<Store> AddStore(Store store)
+        {
+            throw new NotImplementedException();
+        }
+
+         public async Task DeleteStore(int id, Store store)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Store> GetOneStore(int id)
+        {
+            var responseStream = await client.GetStreamAsync($"Stores/{id}");
+            Store result = await JsonSerializer.DeserializeAsync<Store>(responseStream);
+            return result;
+        }
+
+        public async Task<Store> UpdateStore(int id, Store store)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
