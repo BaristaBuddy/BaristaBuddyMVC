@@ -25,7 +25,18 @@ namespace BaristaBuddyMVC.Services
 
         public async Task<Store> AddStore(Store store)
         {
-            throw new NotImplementedException();
+            using (var content = new StringContent(JsonSerializer.Serialize(store), System.Text.Encoding.UTF8, "application/json"))
+            {
+                var response = await client.PostAsync("Stores", content);
+                if (response.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    var responseStream = response.Content.ReadAsStreamAsync().Result;
+                    Store result = await JsonSerializer.DeserializeAsync<Store>(responseStream);
+                    return result;
+                }
+
+                throw new Exception($"Failed to POST data: ({response.StatusCode})");
+            }
         }
 
          public async Task DeleteStore(int id, Store store)
