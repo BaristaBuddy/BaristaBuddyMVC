@@ -41,7 +41,7 @@ namespace BaristaBuddyMVC.Controllers
         // POST: Stores/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Store store)
+        public async Task<ActionResult<Store>> Create(Store store)
         {
             try
             {
@@ -65,7 +65,7 @@ namespace BaristaBuddyMVC.Controllers
         // POST: Stores/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, Store store)
+        public async Task<ActionResult<Store>> Edit(int id, Store store)
         {
             try
             {
