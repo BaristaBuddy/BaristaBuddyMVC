@@ -52,9 +52,11 @@ namespace BaristaBuddyMVC.Services
             return result;
         }
 
-             Task<Item> GetOneItem(int id)
+            public async Task<Item> GetOneItem(int id)
         {
-            throw new System.NotImplementedException();
+            var responseStream = await client.GetStreamAsync($"stores/Items/{id}");
+            Item result = await JsonSerializer.DeserializeAsync<Item>(responseStream);
+            return result;
         }
 
              Task<Item> UpdateItems(int id, Item item)
