@@ -54,7 +54,17 @@ namespace BaristaBuddyMVC.Services
 
         public async Task<Store> UpdateStore(int id, Store store)
         {
-            throw new NotImplementedException();
+            using (var content = new StringContent(JsonSerializer.Serialize(store), System.Text.Encoding.UTF8, "application/json"))
+            {
+                var response = await client.PutAsync($"Hotels/{id}", content);
+                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                {
+                    return store;
+                }
+
+                var errorBody = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Failed to POST data: ({response.StatusCode})");
+            }
         }
     }
 }
