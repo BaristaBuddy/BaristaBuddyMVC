@@ -10,6 +10,6 @@ namespace BaristaBuddyMVC.Services
         Task<Store> GetOneStore(int id);
         Task<Store> AddStore(Store store);
         Task<Store> UpdateStore(int id, Store store);
-        Task DeleteStore(int id, Store store);
+        Task DeleteStore(int id);
     }
 }
