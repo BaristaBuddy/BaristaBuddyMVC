@@ -22,7 +22,7 @@ namespace BaristaBuddyMVC.Controllers
         public async Task<ActionResult<List<Store>>> Index()
         {
             var stores = await storeService.GetAllStores();
-            return View(stores);
+            return View(stores.OrderBy(s => s.Name));
         }
 
         // GET: Stores/Details/5
