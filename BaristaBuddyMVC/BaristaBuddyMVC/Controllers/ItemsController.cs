@@ -75,7 +75,6 @@ namespace BaristaBuddyMVC.Controllers
         {
             try
             {
-                // TODO: Add update logic here
                 await itemService.UpdateItems(id, item, storeId);
                 return RedirectToAction(nameof(Index));
             }
