@@ -17,10 +17,12 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers
-        public ActionResult Index()
+        public async Task<ActionResult<List<StoreModifier>>> Index()
         {
-            return View();
+            var storeModifier = await modifierService.GetAllStoreModifiers();
+            return View(storeModifier.OrderBy(s => s.Name));
         }
+
 
         // GET: Modifiers/Details/5
         public ActionResult Details(int id)
