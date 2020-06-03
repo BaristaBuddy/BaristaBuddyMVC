@@ -34,12 +34,14 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Create
+        [Route("Stores/{storeId}/Items/Create")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Items/Create
+        [Route("Stores/{storeId}/Items/Create/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Create(Item item, int storeId)
@@ -58,6 +60,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Edit/5
+        [Route("Stores/{storeId}/Items/{id}/Edit")]
         public async Task<ActionResult<Item>> Edit(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
@@ -65,6 +68,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Edit/5
+        [Route("Stores/{storeId}/Items/{id}/Edit/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Edit(int id,Item item,int storeId)
@@ -82,6 +86,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Delete/5
+        [Route("Stores/{storeId}/Items/{id}/Delete/Success")]
         public async Task<ActionResult<Item>> Delete(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
@@ -89,6 +94,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Delete/5
+        [Route("Stores/{storeId}/Items/{id}/Delete/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id, Item item, int storeId)
