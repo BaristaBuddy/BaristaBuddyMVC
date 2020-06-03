@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BaristaBuddyMVC.Models
 {
-    public class Modifier
+    public class StoreModifier
     {
         public int Id { get; set; }
         public string Name { get; set; }

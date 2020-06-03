@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaristaBuddyMVC.Models;
+using BaristaBuddyMVC.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +11,7 @@ namespace BaristaBuddyMVC.Controllers
 {
     public class ModifiersController : Controller
     {
-        private readonly IModifierService storeService;
+        private readonly IModifierService modifierService;
 
         public ModifiersController(IModifierService modifierService)
         {
