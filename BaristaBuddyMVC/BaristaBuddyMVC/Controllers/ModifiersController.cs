@@ -26,10 +26,11 @@ namespace BaristaBuddyMVC.Controllers
         }
 
 
-        // GET: Modifiers/Details/5
-        public ActionResult Details(int id)
+        // GET: Modifiers/1/Details/5
+        public async Task<ActionResult<Store>> Details(int id)
         {
-            return View();
+            var storeModifier = await modifierService.GetOneStoreModifier(id);
+            return View(storeModifier);
         }
 
         // GET: Modifiers/Create
