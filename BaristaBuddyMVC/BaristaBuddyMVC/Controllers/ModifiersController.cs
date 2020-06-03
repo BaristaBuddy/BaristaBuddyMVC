@@ -9,6 +9,13 @@ namespace BaristaBuddyMVC.Controllers
 {
     public class ModifiersController : Controller
     {
+        private readonly IModifierService storeService;
+
+        public ModifiersController(IModifierService modifierService)
+        {
+            this.modifierService = modifierService;
+        }
+
         // GET: Modifiers
         public ActionResult Index()
         {
