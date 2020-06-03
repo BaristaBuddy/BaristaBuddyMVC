@@ -8,11 +8,11 @@ namespace BaristaBuddyMVC.Services
 {
     public interface IItemService
     {
-        Task<List<Item>> GetAllItems();
-        Task<Item> GetOneItem(int id);
-        Task<Item> AddItem(Item item);
-        Task<Item> UpdateItems(int id, Item item);
-        Task DeleteItem(int id);
+        Task<List<Item>> GetAllItems(int storeId);
+        Task<Item> GetOneItem(int id, int storeId);
+        Task<Item> AddItem(Item item, int storeId);
+        Task<Item> UpdateItems(int id, Item item, int storeId);
+        Task DeleteItem(int id, int storeId);
 
     }
 }
