@@ -41,7 +41,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Create
-        [Route("Stores/{storeId}/Items/Create/Success")]
+        [Route("Stores/{storeId}/Items/Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Create(Item item, int storeId)
@@ -51,7 +51,7 @@ namespace BaristaBuddyMVC.Controllers
                 // TODO: Add insert logic here
                 await itemService.AddItem(item, storeId);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
@@ -68,7 +68,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Edit/5
-        [Route("Stores/{storeId}/Items/{id}/Edit/Success")]
+        [Route("Stores/{storeId}/Items/{id}/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Edit(int id,Item item,int storeId)
