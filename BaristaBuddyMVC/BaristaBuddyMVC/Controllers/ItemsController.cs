@@ -26,7 +26,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Details/5
-        [Route("Stores/{storeId}/Items")]
+        [Route("Stores/{storeId}/Items/Details/{id}")]
         public async Task<ActionResult<Item>> Details(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
