@@ -61,7 +61,17 @@ namespace BaristaBuddyMVC.Services
 
              public async Task<Item> UpdateItems(int id, Item item)
         {
-            return default;
+            using (var content = new StringContent(JsonSerializer.Serialize(item), System.Text.Encoding.UTF8, "Application/Json"))
+            {
+                var response = await client.PutAsync($"items/{id}", content);
+                if(response.StatusCode  == System.Net.HttpStatusCode.NoContent)
+                {
+                    return item;
+                }
+
+                var errorBody = await response.Content.ReadAsStringAsync();
+                throw new Exception($"failed to post data: ({ response.StatusCode})");
+            }
         }
     }
 }
