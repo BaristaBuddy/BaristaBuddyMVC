@@ -56,7 +56,7 @@ namespace BaristaBuddyMVC.Services
         {
             using (var content = new StringContent(JsonSerializer.Serialize(store), System.Text.Encoding.UTF8, "application/json"))
             {
-                var response = await client.PutAsync($"Hotels/{id}", content);
+                var response = await client.PutAsync($"Stores/{id}", content);
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
                     return store;
