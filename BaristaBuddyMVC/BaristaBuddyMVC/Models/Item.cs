@@ -8,7 +8,7 @@ namespace BaristaBuddyMVC.Models
 {
     public class Item
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName("itemId")]
         public int Id
         {
             get; set;
@@ -33,6 +33,8 @@ namespace BaristaBuddyMVC.Models
         {
             get; set;
         }
+        [JsonPropertyName("storeId")]
+        public int StoreId { get; set; }
 
     }
 }
