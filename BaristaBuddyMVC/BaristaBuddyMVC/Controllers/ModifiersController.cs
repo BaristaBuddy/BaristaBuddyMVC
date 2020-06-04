@@ -20,18 +20,18 @@ namespace BaristaBuddyMVC.Controllers
 
         // GET: Modifiers
         [Route("Stores/{storeId}/StoreModifiers")]
-        public async Task<ActionResult<List<StoreModifier>>> Index()
+        public async Task<ActionResult<List<StoreModifier>>> Index(int storeId)
         {
-            var storeModifier = await modifierService.GetAllStoreModifiers();
+            var storeModifier = await modifierService.GetAllStoreModifiers(storeId);
             return View(storeModifier.OrderBy(m => m.Name));
         }
 
 
         // GET: Modifiers/1/Details/5
         [Route("Stores/{storeId}/StoreModifiers/Details/{id}")]
-        public async Task<ActionResult<StoreModifier>> Details(int id)
+        public async Task<ActionResult<StoreModifier>> Details(int id, int storeId)
         {
-            var storeModifier = await modifierService.GetOneStoreModifier(id);
+            var storeModifier = await modifierService.GetOneStoreModifier(id, storeId);
             return View(storeModifier);
         }
 
@@ -77,7 +77,7 @@ namespace BaristaBuddyMVC.Controllers
         {
             try
             {
-                await modifierService.UpdateStoreModifiers(id, modifier, storeId);
+                await modifierService.UpdateStoreModifier(id, modifier, storeId);
                 return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
