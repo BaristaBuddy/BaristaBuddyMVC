@@ -3,13 +3,13 @@ box-sizing: border-box;
 }
 
 html {
-    height: 100vh;
+    min-height: 100vh;
     /* background: linear-gradient(to bottom right, rgb(216, 178, 123), rgba(196, 157, 104, 0.90), rgba(204, 154, 85, 0.90), rgb(228, 191, 138)); */
     background: #f7d2b7;
 }
 
 body {
-    height:100vh;
+    min-height:100vh;
 }
 
 .index-container {
@@ -22,6 +22,6 @@ body {
     background: #f7d2b7;
 }
 
-.table = {
-    background: #f7d2b7;
+.card p {
+    font-size: 18px;
 }
