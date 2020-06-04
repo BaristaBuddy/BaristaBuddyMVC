@@ -61,7 +61,8 @@ namespace BaristaBuddyMVC.Services
 
              public async Task<Item> UpdateItems(int id, Item item, int storeId)
         {
-            using (var content = new StringContent(JsonSerializer.Serialize(item), System.Text.Encoding.UTF8, "Application/Json"))
+            string json = JsonSerializer.Serialize(item);
+            using (var content = new StringContent(json, System.Text.Encoding.UTF8, "Application/Json"))
             {
                 var response = await client.PutAsync($"Stores/{storeId}/items/{id}", content);
                 if(response.StatusCode  == System.Net.HttpStatusCode.NoContent)

@@ -23,7 +23,7 @@ namespace BaristaBuddyMVC.Models
         {
             get; set;
         }
-        [JsonPropertyName("itemImageUrl")]
+        [JsonPropertyName("imageUrl")]
         public string ItemImageUrl
         {
             get; set;
@@ -36,7 +36,7 @@ namespace BaristaBuddyMVC.Models
         [JsonPropertyName("storeId")]
         public int StoreId { get; set; }
 
-
+        [JsonPropertyName("itemModifiers")]
         public List<ItemModifier> ItemModifiers { get; set; }
 
 
