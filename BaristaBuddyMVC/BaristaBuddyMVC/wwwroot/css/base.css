@@ -2,6 +2,7 @@
 box-sizing: border-box;
 }
 
-main {
-    background: linear-gradient(to bottom right, rgba(204, 150, 73, 1), rgba(212, 157, 80, .9), rgba(229, 172, 91, 0.70));
+html {
+    height: 100%;
+    background: linear-gradient(to bottom right, rgb(216, 178, 123), rgba(196, 157, 104, 0.90), rgba(204, 154, 85, 0.90), rgb(228, 191, 138));
 }
