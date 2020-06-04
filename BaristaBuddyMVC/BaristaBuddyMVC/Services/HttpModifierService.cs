@@ -47,7 +47,7 @@ namespace BaristaBuddyMVC.Services
 
         public async Task<List<StoreModifier>> GetAllStoreModifiers(int storeId)
         {
-            var responseStream = await client.GetStreamAsync($"Stores/{storeId}/StoreModifiers");
+            var responseStream = await client.GetStreamAsync($"Stores/{storeId}/Modifier");
             List<StoreModifier> result = await JsonSerializer.DeserializeAsync<List<StoreModifier>>(responseStream);
             return result;
         }

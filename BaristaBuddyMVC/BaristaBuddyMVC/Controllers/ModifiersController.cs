@@ -22,8 +22,8 @@ namespace BaristaBuddyMVC.Controllers
         [Route("Stores/{storeId}/StoreModifiers")]
         public async Task<ActionResult<List<StoreModifier>>> Index(int storeId)
         {
-            var storeModifier = await modifierService.GetAllStoreModifiers(storeId);
-            return View(storeModifier.OrderBy(m => m.Name));
+            var storeModifiers = await modifierService.GetAllStoreModifiers(storeId);
+            return View(storeModifiers.OrderBy(m => m.Name));
         }
 
 
