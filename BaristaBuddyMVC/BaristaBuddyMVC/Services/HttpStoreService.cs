@@ -19,6 +19,7 @@ namespace BaristaBuddyMVC.Services
         public async Task<List<Store>> GetAllStores()
         {
             var responseStream = await client.GetStreamAsync("Stores");
+
             List<Store> result = await JsonSerializer.DeserializeAsync<List<Store>>(responseStream);
             return result;
         }
