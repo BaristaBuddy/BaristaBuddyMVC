@@ -6,12 +6,16 @@ using BaristaBuddyMVC.Models;
 using BaristaBuddyMVC.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static BaristaBuddyMVC.Models.EditItemViewModelcs;
+using static BaristaBuddyMVC.Models.EditItemViewModelcs.StoreModifier;
 
 namespace BaristaBuddyMVC.Controllers
 {
     public class ItemsController : Controller
     {
         private readonly IItemService itemService;
+        public HttpModifierService modifierService;
+        
         public ItemsController(IItemService itemService)
         {
             this.itemService = itemService;
@@ -35,9 +39,20 @@ namespace BaristaBuddyMVC.Controllers
 
         // GET: Items/Create
         [Route("Stores/{storeId}/Items/Create")]
-        public ActionResult Create()
+        public ActionResult Create(int storeId)
         {
-            return View();
+            var model = new EditItemViewModel
+            {
+                ItemModifiers = 
+                        modifierService.GetAllStoreModifiers()
+                        .Select(sm => new EditItemModifier
+                        {
+                            Id = sm.Id,
+                            Name = sm.Name,
+                        })
+                        .ToList(),
+            };
+            return View(model);
         }
 
         // POST: Items/Create
