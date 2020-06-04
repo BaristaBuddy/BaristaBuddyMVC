@@ -40,6 +40,8 @@
                             <label>
                                 @Html.CheckBoxFor(_=> Model.ItemModifiers[i].Selected)
                                 @Html.DisplayFor(_=> Model.ItemModifiers[i].Name)
+                                @Html.HiddenFor(_ => Model.ItemModifiers[i].Id)
+                                @Html.HiddenFor(_ => Model.ItemModifiers[i].Name)
                             </label>
                             @Html.EditorFor(_ => Model.ItemModifiers[i].AdditionalCost)
                         </li>
