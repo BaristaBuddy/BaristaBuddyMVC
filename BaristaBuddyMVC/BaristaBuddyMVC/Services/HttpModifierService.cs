@@ -23,7 +23,7 @@ namespace BaristaBuddyMVC.Services
             using (var content = new StringContent(JsonSerializer.Serialize(storeModifier),
                 System.Text.Encoding.UTF8, "application/Json"))
             {
-                var response = await client.PostAsync($"Stores/{storeId}/StoreModifiers", content);
+                var response = await client.PostAsync($"Stores/{storeId}/Modifiers", content);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     var responseStream = response.Content.ReadAsStreamAsync().Result;
@@ -41,20 +41,20 @@ namespace BaristaBuddyMVC.Services
 
         public async Task DeleteStoreModifier(int id, int storeId)
         {
-            var response = await client.DeleteAsync($"Stores/{storeId}/StoreModifiers/{id}");
+            var response = await client.DeleteAsync($"Stores/{storeId}/Modifiers/{id}");
             response.EnsureSuccessStatusCode();
         }
 
         public async Task<List<StoreModifier>> GetAllStoreModifiers(int storeId)
         {
-            var responseStream = await client.GetStreamAsync($"Stores/{storeId}/Modifier");
+            var responseStream = await client.GetStreamAsync($"Stores/{storeId}/Modifiers");
             List<StoreModifier> result = await JsonSerializer.DeserializeAsync<List<StoreModifier>>(responseStream);
             return result;
         }
 
         public async Task<StoreModifier> GetOneStoreModifier(int id, int storeId)
         {
-            var responseStream = await client.GetStreamAsync($"stores/{storeId}/StoreModifiers/{id}");
+            var responseStream = await client.GetStreamAsync($"stores/{storeId}/Modifiers/{id}");
             StoreModifier result = await JsonSerializer.DeserializeAsync<StoreModifier>(responseStream);
             return result;
         }
@@ -63,7 +63,7 @@ namespace BaristaBuddyMVC.Services
         {
             using (var content = new StringContent(JsonSerializer.Serialize(storeModifier), System.Text.Encoding.UTF8, "Application/Json"))
             {
-                var response = await client.PutAsync($"Stores/{storeId}/storeModifiers/{id}", content);
+                var response = await client.PutAsync($"Stores/{storeId}/modifiers/{id}", content);
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
                     return storeModifier;
