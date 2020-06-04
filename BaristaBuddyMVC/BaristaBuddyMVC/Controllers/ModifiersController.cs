@@ -19,34 +19,41 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers
+        [Route("Stores/{storeId}/StoreModifiers")]
         public async Task<ActionResult<List<StoreModifier>>> Index()
         {
             var storeModifier = await modifierService.GetAllStoreModifiers();
-            return View(storeModifier.OrderBy(s => s.Name));
+            return View(storeModifier.OrderBy(m => m.Name));
         }
 
 
         // GET: Modifiers/1/Details/5
-        public async Task<ActionResult<Store>> Details(int id)
+        [Route("Stores/{storeId}/StoreModifiers/Details/{id}")]
+        public async Task<ActionResult<StoreModifier>> Details(int id)
         {
             var storeModifier = await modifierService.GetOneStoreModifier(id);
             return View(storeModifier);
         }
 
         // GET: Modifiers/Create
+        [Route("Stores/{storeId}/StoreModifiers/Create")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Modifiers/Create
+        [Route("Stores/{storeId}/StoreModifiers/Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult<StoreModifier>> Create(StoreModifier modifier, int storeId)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                // TODO: Add insert logic here
+                await modifierService.AddStoreModifier(modifier, storeId);
+
+                return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
@@ -55,19 +62,23 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers/Edit/5
-        public ActionResult Edit(int id)
+        [Route("Stores/{storeId}/StoreModifiers/{id}/Edit")]
+        public async Task<ActionResult<StoreModifier>> Edit(int id, int storeId)
         {
-            return View();
+            var modifier = await modifierService.GetOneStoreModifier(id, storeId);
+            return View(modifier);
         }
 
         // POST: Modifiers/Edit/5
+        [Route("Stores/{storeId}/StoreModifiers/{id}/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult<StoreModifier>> Edit(int id, StoreModifier modifier, int storeId)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await modifierService.UpdateStoreModifiers(id, modifier, storeId);
+                return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
@@ -76,18 +87,23 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers/Delete/5
-        public ActionResult Delete(int id)
+        [Route("Stores/{storeId}/StoreModifiers/{id}/Delete/Success")]
+        public async Task<ActionResult<StoreModifier>> Delete(int id, int storeId)
         {
-            return View();
+            var modifier = await modifierService.GetOneStoreModifier(id, storeId);
+            return View(modifier);
         }
 
         // POST: Modifiers/Delete/5
+        [Route("Stores/{storeId}/StoreModifiers/{id}/Delete/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, StoreModifier modifier, int storeId)
         {
             try
             {
+                // TODO: Add delete logic here
+                await modifierService.DeleteStoreModifier(id, storeId);
                 return RedirectToAction(nameof(Index));
             }
             catch
