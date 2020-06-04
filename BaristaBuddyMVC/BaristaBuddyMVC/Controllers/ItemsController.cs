@@ -100,7 +100,6 @@ namespace BaristaBuddyMVC.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
                 await itemService.DeleteItem(id, storeId);
                 return RedirectToAction(nameof(Index));
             }
