@@ -60,18 +60,33 @@ namespace BaristaBuddyMVC.Controllers
         [Route("Stores/{storeId}/Items/Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult<Item>> Create(Item item, int storeId)
+        public async Task<ActionResult<Item>> Create(EditItemViewModel itemModel, int storeId)
         {
             try
             {
-                // TODO: Add insert logic here
+                var item = new Item
+                {
+                    Name = itemModel.Name,
+                    Ingredients = itemModel.Ingredients,
+                    ItemImageUrl = itemModel.ItemImageUrl,
+                    Price = itemModel.Price,
+                    StoreId = storeId,
+                    ItemModifiers = itemModel.ItemModifiers
+                        .Where(modifier => modifier.Selected)
+                        .Select(modifier => new ItemModifier
+                        {
+                            ModifierId = modifier.Id,
+                            AdditionalCost = modifier.AdditionalCost ?? 0
+                        })
+                        .ToList()
+                };
                 await itemService.AddItem(item, storeId);
 
                 return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
-                return View();
+                return View(itemModel);
             }
         }
 

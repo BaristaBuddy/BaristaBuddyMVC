@@ -36,5 +36,9 @@ namespace BaristaBuddyMVC.Models
         [JsonPropertyName("storeId")]
         public int StoreId { get; set; }
 
+
+        public List<ItemModifier> ItemModifiers { get; set; }
+
+
     }
 }
