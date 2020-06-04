@@ -19,7 +19,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers
-        [Route("Stores/{storeId}/StoreModifiers")]
+        [Route("Stores/{storeId}/Modifiers")]
         public async Task<ActionResult<List<StoreModifier>>> Index(int storeId)
         {
             var storeModifiers = await modifierService.GetAllStoreModifiers(storeId);
@@ -28,7 +28,7 @@ namespace BaristaBuddyMVC.Controllers
 
 
         // GET: Modifiers/1/Details/5
-        [Route("Stores/{storeId}/StoreModifiers/Details/{id}")]
+        [Route("Stores/{storeId}/Modifiers/Details/{id}")]
         public async Task<ActionResult<StoreModifier>> Details(int id, int storeId)
         {
             var storeModifier = await modifierService.GetOneStoreModifier(id, storeId);
@@ -36,14 +36,14 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers/Create
-        [Route("Stores/{storeId}/StoreModifiers/Create")]
+        [Route("Stores/{storeId}/Modifiers/Create")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Modifiers/Create
-        [Route("Stores/{storeId}/StoreModifiers/Create")]
+        [Route("Stores/{storeId}/Modifiers/Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<StoreModifier>> Create(StoreModifier modifier, int storeId)
@@ -62,7 +62,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers/Edit/5
-        [Route("Stores/{storeId}/StoreModifiers/{id}/Edit")]
+        [Route("Stores/{storeId}/Modifiers/{id}/Edit")]
         public async Task<ActionResult<StoreModifier>> Edit(int id, int storeId)
         {
             var modifier = await modifierService.GetOneStoreModifier(id, storeId);
@@ -70,7 +70,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Modifiers/Edit/5
-        [Route("Stores/{storeId}/StoreModifiers/{id}/Edit")]
+        [Route("Stores/{storeId}/Modifiers/{id}/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<StoreModifier>> Edit(int id, StoreModifier modifier, int storeId)
@@ -87,7 +87,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Modifiers/Delete/5
-        [Route("Stores/{storeId}/StoreModifiers/{id}/Delete/Success")]
+        [Route("Stores/{storeId}/Modifiers/{id}/Delete/Success")]
         public async Task<ActionResult<StoreModifier>> Delete(int id, int storeId)
         {
             var modifier = await modifierService.GetOneStoreModifier(id, storeId);
@@ -95,7 +95,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Modifiers/Delete/5
-        [Route("Stores/{storeId}/StoreModifiers/{id}/Delete/Success")]
+        [Route("Stores/{storeId}/Modifiers/{id}/Delete/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id, StoreModifier modifier, int storeId)
