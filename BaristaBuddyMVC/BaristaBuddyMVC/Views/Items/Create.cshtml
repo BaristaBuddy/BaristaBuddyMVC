@@ -40,7 +40,8 @@
 </div>
 
 <div>
-    <a asp-route-itemid="Index">Return to List</a>
+    <a asp-action="Index"
+       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">Return to List</a>
 </div>
 
 @section Scripts {
