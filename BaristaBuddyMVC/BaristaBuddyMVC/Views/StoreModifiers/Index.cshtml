@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BaristaBuddyMVC.Models.StoreModifier>
+
+@{
+    ViewData["Title"] = "Store Modifiers";
+}
+
+<h1>Store Modifiers</h1>
+
+<p>
+    <a asp-action="Create"
+       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">Add a new modifier</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.StoreId, item.Id }) |
+                @Html.ActionLink("Details", "Details", new { item.StoreId, item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { item.StoreId, item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
