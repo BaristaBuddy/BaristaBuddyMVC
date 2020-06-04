@@ -9,15 +9,20 @@ using System.Threading.Tasks;
 
 namespace BaristaBuddyMVC.Services
 {
-    public class HttpModiferService : IModifierService
+    public class HttpModifierService : IModifierService
     {
+
         private readonly HttpClient client;
-        public HttpModiferService(HttpClient client)
+       
+       public HttpModifierService(HttpClient client)
         {
             this.client = client;
 
         }
 
+      
+
+    
         public async Task<StoreModifier> AddStoreModifier(StoreModifier storeModifier, int storeId)
         {
             using (var content = new StringContent(JsonSerializer.Serialize(storeModifier),
