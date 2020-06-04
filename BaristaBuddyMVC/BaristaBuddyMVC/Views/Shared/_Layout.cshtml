@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BaristaBuddy</title>
+    <title>@ViewData["Title"] - Barista Buddy</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <!--<link rel="stylesheet" href="~/css/site.css" />-->
     <link rel="stylesheet" href="~/css/base.css" />
 
 </head>
-<body>
+<body class="brand-color">
     <header class="brand-color">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BaristaBuddy</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Barista Buddy</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,17 +29,17 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>-->
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-2" style="min-height:95vh;">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted brand-color">
         <div class="container">
-            &copy; 2020 - BaristaBuddy - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Barista Buddy - <a asp-area="" asp-controller="Home" asp-action="Privacy">License</a> - <a asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

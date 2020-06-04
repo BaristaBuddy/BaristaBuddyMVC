@@ -3,17 +3,25 @@ box-sizing: border-box;
 }
 
 html {
-    height: 100%;
+    min-height: 100vh;
     /* background: linear-gradient(to bottom right, rgb(216, 178, 123), rgba(196, 157, 104, 0.90), rgba(204, 154, 85, 0.90), rgb(228, 191, 138)); */
     background: #f7d2b7;
 }
 
+body {
+    min-height:100vh;
+}
+
 .index-container {
-    max-height:100vh;
-    max-width: 100vw;
+    height:95vh;
+    width: 100vw;
     background: #f7d2b7;
 }
 
 .brand-color {
     background: #f7d2b7;
+}
+
+.card p {
+    font-size: 18px;
 }
