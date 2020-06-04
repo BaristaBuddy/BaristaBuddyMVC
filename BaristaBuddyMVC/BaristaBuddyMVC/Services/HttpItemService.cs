@@ -7,10 +7,10 @@ using System;
 
 namespace BaristaBuddyMVC.Services
 {
-    public class HttpItemsService : IItemService
+    public class HttpItemService : IItemService
     {
         private readonly HttpClient client;
-        public HttpItemsService(HttpClient client)
+        public HttpItemService(HttpClient client)
         {
             this.client = client;
 
@@ -21,7 +21,7 @@ namespace BaristaBuddyMVC.Services
             using(var content = new StringContent(JsonSerializer.Serialize(item),
                 System.Text.Encoding.UTF8, "application/Json"))
             {
-                var response = await client.PostAsync($"Stores/{storeId}/", content);
+                var response = await client.PostAsync($"Stores/{storeId}/Items", content);
                 if (response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     var responseStream = response.Content.ReadAsStreamAsync().Result;

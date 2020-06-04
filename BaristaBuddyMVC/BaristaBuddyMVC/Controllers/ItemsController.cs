@@ -18,6 +18,7 @@ namespace BaristaBuddyMVC.Controllers
 
         }
         // GET: Items
+        [Route("Stores/{storeId}/Items")]
         public async Task<ActionResult<List<Item>>> Index(int storeId)
         {
             var items = await itemService.GetAllItems(storeId);
@@ -25,6 +26,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Details/5
+        [Route("Stores/{storeId}/Items/Details/{id}")]
         public async Task<ActionResult<Item>> Details(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
@@ -32,12 +34,14 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Create
+        [Route("Stores/{storeId}/Items/Create")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Items/Create
+        [Route("Stores/{storeId}/Items/Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Create(Item item, int storeId)
@@ -47,7 +51,7 @@ namespace BaristaBuddyMVC.Controllers
                 // TODO: Add insert logic here
                 await itemService.AddItem(item, storeId);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
@@ -56,6 +60,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Edit/5
+        [Route("Stores/{storeId}/Items/{id}/Edit")]
         public async Task<ActionResult<Item>> Edit(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
@@ -63,13 +68,13 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Edit/5
+        [Route("Stores/{storeId}/Items/{id}/Edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<Item>> Edit(int id,Item item,int storeId)
         {
             try
             {
-                // TODO: Add update logic here
                 await itemService.UpdateItems(id, item, storeId);
                 return RedirectToAction(nameof(Index));
             }
@@ -80,6 +85,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // GET: Items/Delete/5
+        [Route("Stores/{storeId}/Items/{id}/Delete/Success")]
         public async Task<ActionResult<Item>> Delete(int id, int storeId)
         {
             var item = await itemService.GetOneItem(id, storeId);
@@ -87,6 +93,7 @@ namespace BaristaBuddyMVC.Controllers
         }
 
         // POST: Items/Delete/5
+        [Route("Stores/{storeId}/Items/{id}/Delete/Success")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Delete(int id, Item item, int storeId)

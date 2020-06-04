@@ -34,6 +34,7 @@ namespace BaristaBuddyMVC
             services.AddSingleton<HttpClient>(httpClient);
 
             services.AddSingleton<IStoreService, HttpStoreService>();
+            services.AddSingleton<IItemService, HttpItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
