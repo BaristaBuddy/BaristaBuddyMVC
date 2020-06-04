@@ -7,7 +7,8 @@
 <h1>Your Menu</h1>
 
 <p>
-    <a asp-route-itemId="Create">Add New Menu Item</a>
+    <a asp-action="Create"
+       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">Add New Menu Item</a>
 </p>
 <table class="table">
     <thead>
