@@ -8,7 +8,11 @@ html {
 }
 
 .index-container {
-    height:100vh;
-    width: 100vw;
+    max-height:100vh;
+    max-width: 100vw;
+    background: #f7d2b7;
+}
+
+.brand-color {
     background: #f7d2b7;
 }
