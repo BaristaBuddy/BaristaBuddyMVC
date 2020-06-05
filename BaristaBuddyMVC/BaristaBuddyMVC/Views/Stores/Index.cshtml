@@ -12,21 +12,29 @@
 <div class="text-center row">
     @foreach (var item in Model)
     {
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card" style="margin-top: 15px; min-width: 15rem;">
-                <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.StoreImageUrl)" alt="Store Image" />
+    <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card" style="margin-top: 15px; min-width: 15rem;">
+            <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.StoreImageUrl)" alt="Store Image" />
 
-                <div class="card-body">
+            <div class="card-body">
 
-                    <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name)</h3>
+                <h3 class="card-title text-center">@Html.DisplayFor(modelItem => item.Name)</h3>
 
-                    <p>
-                        @Html.DisplayFor(modelItem => item.StreetAddress)<br />
+                <p>
+                    @Html.DisplayFor(modelItem => item.StreetAddress)<br />
 
-                        @Html.DisplayFor(modelItem => item.City),
+                    @Html.DisplayFor(modelItem => item.City),
 
-                        @Html.DisplayFor(modelItem => item.State)
-                    </p>
+                    @Html.DisplayFor(modelItem => item.State)
+                </p>
+                <div class="card-body" style="margin:5px;">
+                    <a class="btn btn-block btn-outline-primary"
+                       asp-action="Index"
+                       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">
+                        Menu
+                    </a>
+                </div>
+                <div class="card-footer">
                     <p>
                         @Html.ActionLink("Edit", "Edit", new { item.Id }) |
                         @Html.ActionLink("Details", "Details", new { item.Id }) |
@@ -35,6 +43,7 @@
                 </div>
             </div>
         </div>
+    </div>
     }
 </div>
 
