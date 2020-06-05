@@ -22,7 +22,7 @@ namespace BaristaBuddyMVC.Controllers
 
         }
         // GET: Items
-        [Route("Stores/{storeId}/Items")]
+        [Route("Stores/Items/{storeId}")]
         public async Task<ActionResult<List<Item>>> Index(int storeId)
         {
             var items = await itemService.GetAllItems(storeId);

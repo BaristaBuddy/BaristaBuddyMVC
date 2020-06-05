@@ -28,11 +28,7 @@
                     @Html.DisplayFor(modelItem => item.State)
                 </p>
                 <div class="card-body" style="margin:5px;">
-                    <a class="btn btn-block btn-outline-primary"
-                       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]"
-                       asp-page="/Items">
-                        Menu
-                    </a>
+                    @Html.ActionLink("Menu", "Items", new { item.Id })
                 </div>
                 <div class="card-footer">
                     <p>

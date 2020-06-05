@@ -61,10 +61,8 @@
     </dl>
 </div>
 <div class="card-body" style="margin:5px;">
-    <a class="btn btn-lg btn-outline-primary"
-       asp-action="Index"
-       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">
-        Menu
+    <a>
+        @Html.ActionLink("Menu", "Items", new { Model.Id })
     </a>
 </div>
 <div>
