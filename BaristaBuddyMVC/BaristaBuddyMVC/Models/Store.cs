@@ -25,8 +25,10 @@ namespace BaristaBuddyMVC.Models
         [JsonPropertyName("phone")]
         public string Phone { get; set; }
         [JsonPropertyName("websiteUrl")]
+        [Display(Name = "Website")]
         public string WebsiteUrl { get; set; }
         [JsonPropertyName("storeImageUrl")]
+        [Display(Name="Image URL")]
         public string StoreImageUrl { get; set; }
     }
 }
