@@ -1,5 +1,8 @@
-﻿* {
-box-sizing: border-box;
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Exo', sans-serif !important;
 }
 
 html {
@@ -9,12 +12,14 @@ html {
 }
 
 body {
-    min-height:100vh;
+    min-height: 100vh;
+    background: #f7d2b7;
 }
 
+
 .index-container {
-    height:95vh;
     width: 100vw;
+    height: 100vh;
     background: #f7d2b7;
 }
 

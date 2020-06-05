@@ -8,21 +8,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BaristaBuddy</title>
+    <title>@ViewData["Title"] - Barista Buddy</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <!--<link rel="stylesheet" href="~/css/site.css" />-->
     <link rel="stylesheet" href="~/css/base.css" />
 </head>
 <body>
-    <main class="index-container">
-        <div class="text-center animated fadeIn">
-            <a asp-action="Index"
-               asp-controller="Stores"><img alt="Barista Buddy logo" src="..\img\barista-buddy-index.png" /></a>
-        </div>
-    </main>
+    <a asp-action="Index"
+       asp-controller="Stores">
+        <main class="index-container">
+
+                <div class="text-center d-sm-none d-md-block">
+                    <img alt="Barista Buddy logo" src="..\img\barista-buddy-mobile.jpg" />
+                </div>                
+                <div class="text-center d-none d-sm-block d-md.none">
+                <img alt="Barista Buddy logo" src="..\img\barista-buddy-index.png" />
+                </div>
+        </main>
+    </a>
     <footer class="footer text-muted brand-color">
         <div class="container">
-            &copy; 2020 - Barista Buddy - <a asp-area="" asp-controller="Home" asp-action="Privacy">License</a>
+            &copy; 2020 - Barista Buddy - <a asp-area="" asp-controller="Home" asp-action="License">License</a> - <a asp-controller="Home" asp-action="AboutUs">About Us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
