@@ -53,5 +53,6 @@
 <div>
     @Html.ActionLink("Edit", "Edit", new { Model.StoreId, Model.Id }) |
     <a asp-action="Index"
-       asp-route-storeid="@Model.Id">Return to List</a>
+       asp-controller="Items"
+       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">Return to List</a>
 </div>

@@ -1,10 +1,10 @@
 ﻿@model BaristaBuddyMVC.Models.Item
 
 @{
-    ViewData["Title"] = "Edit Item";
+    ViewData["Title"] = "Edit an Item";
 }
 
-<h1>Edit Item</h1>
+<h1>Edit an Item</h1>
 
 <h4>Item</h4>
 <hr />
@@ -40,7 +40,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Return to List</a>
+    <a asp-action="Index"
+       asp-controller="Items"
+       asp-route-storeId="@ViewContext.RouteData.Values["StoreId"]">Return to List</a>
 </div>
 
 @section Scripts {
