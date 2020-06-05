@@ -1,13 +1,13 @@
 ﻿@model BaristaBuddyMVC.Models.Store
 
 @{
-    ViewData["Title"] = "Store Details";
+    ViewData["Title"] = "Your Store Details";
 }
 
-<h1>Store Details</h1>
+<h1>Your Store Details</h1>
 
 <div>
-    <h4>This Store</h4>
+    <h4>Your Store</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -50,7 +50,7 @@
             @Html.DisplayNameFor(model => model.WebsiteUrl)
         </dt>
         <dd class="col-sm-10 border-left">
-            @Html.DisplayFor(model => model.WebsiteUrl)
+            <a href="@Html.DisplayFor(model => model.WebsiteUrl)">@Html.DisplayFor(model => model.WebsiteUrl)</a>
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.StoreImageUrl)
