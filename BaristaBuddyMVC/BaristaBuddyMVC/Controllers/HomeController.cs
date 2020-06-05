@@ -24,8 +24,14 @@ namespace BaristaBuddyMVC.Controllers
             return View();
         }
 
-        [Route("Privacy")]
-        public IActionResult Privacy()
+        [Route("License")]
+        public IActionResult License()
+        {
+            return View();
+        }
+
+        [Route("AboutUs")]
+        public IActionResult AboutUs()
         {
             return View();
         }
