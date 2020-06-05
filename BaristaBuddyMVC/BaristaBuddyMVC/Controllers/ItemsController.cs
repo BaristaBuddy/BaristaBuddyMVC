@@ -132,7 +132,7 @@ namespace BaristaBuddyMVC.Controllers
             try
             {
                 await itemService.DeleteItem(id, storeId);
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { storeId });
             }
             catch
             {
